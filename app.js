@@ -1,12 +1,14 @@
 const express = require("express");
-// controller global error handler
+//middlewares
 const globalErrHandler = require("./middlewares/globalErrHandler");
+//models
 const initModels = require("./models/initModels");
 //routers
 const usersRoutes = require("./routes/users.routes");
 const coursesRoutes = require("./routes/courses.routes");
 const categoriesRoutes = require("./routes/categories.routes");
 const videosRoutes = require("./routes/videos.routes");
+const authRoutes = require("./routes/auth.routes");
 
 const app = express();
 app.use(express.json());
@@ -17,6 +19,7 @@ app.use("/api/v1/users", usersRoutes);
 app.use("/api/v1/courses", coursesRoutes);
 app.use("/api/v1/categories", categoriesRoutes);
 app.use("/api/v1/videos", videosRoutes);
+app.use("/api/v1/auth", authRoutes);
 
 // error middleware
 app.use("*", globalErrHandler);

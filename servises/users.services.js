@@ -1,3 +1,4 @@
+//models
 const Users = require("../models/users.models");
 const RelUserCourses = require("../models/relUserCourses.model");
 const Courses = require("../models/courses.models");
@@ -49,7 +50,7 @@ class UsersServices {
   }
   static async patchUser(id, newData) {
     try {
-      await Users.update(newData, { where: { id } });
+      await Users.update(newData, { where: {} });
       return true;
     } catch (err) {
       throw err;
